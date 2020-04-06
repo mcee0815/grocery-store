@@ -8,18 +8,39 @@
 //  localStorage.setItem('stock',JSON.stringify(groceries))
 
 
-//  get the data
-let stockJSON = localStorage.getItem('stock')
-let stock = JSON.parse(stockJSON)
+//  get the data...
+const getStock = () => {
+    let stockJSON = localStorage.getItem('stock')
+    let stockObj = JSON.parse(stockJSON)
+    return stockObj
+}
+let stock = getStock()
 
-// display the data
-stock.forEach(el => {
-    // make a dom element for the data
-    let stockInfo = document.createElement('p')
-    
-    stockInfo.textContent  = `Brand:${el.brand},  Desc:'${el.desc}',  Quantity:${el.quantity}`
-    
-    document.querySelector('#stock-info').appendChild(stockInfo)
-    
+// display the data...
+const renderStock = (stock) => {
+    stock.forEach(el => {
+        // make a dom element for the data
+        let stockInfo = document.createElement('p')
+        stockInfo.textContent  = `Brand:${el.brand},  Desc:'${el.desc}',  Quantity:${el.quantity}`
+        document.querySelector('#stock-info').appendChild(stockInfo)
+    }); 
+}
 
-});
+// create a product...
+const addProduct = (stock,product) => {
+    stock.push(product)
+    localStorage.setItem('stock',JSON.stringify(stock))
+}
+
+
+
+// let product = {brand:'???',desc:'no desc',type:'na',quantity:0,price:0}
+// addProduct(stock,product)
+
+//localStorage.setItem('stock',JSON.stringify(stock))
+document.querySelector('#stock-info').innerHTML = ''
+
+
+
+// display the data...
+renderStock(stock)

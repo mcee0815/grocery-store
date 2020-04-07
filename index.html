@@ -6,9 +6,30 @@
     <title>grocery-store</title>
 </head>
 <body>
+
     <h1>Groceries Stock</h1>
+    <form id="the-form">
+        <div class="form-example">
+          <label for="brand">Enter Brand: </label>
+          <input type="text" name="brand" id="brand" >
+        </div>
+        <div class="form-example">
+          <label for="description">description: </label>
+          <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="range" id="quantity" name="quantity"
+                   min="0" max="15"><label id="quant"></label>
+            
+        </div>
+        <div class="form-example">
+          <input type="submit" id = "add" value="Add">
+        </div>
+      </form>
+
     <div id = "stock-info">
-        
+    
     </div>
     <script src="app.js"></script>
 </body>

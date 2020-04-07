@@ -44,3 +44,17 @@ document.querySelector('#stock-info').innerHTML = ''
 
 // display the data...
 renderStock(stock)
+
+document.querySelector('#quantity').addEventListener('input',(e) => {
+    (document.querySelector('#quant').textContent = e.target.value)
+})
+
+document.querySelector('#the-form').addEventListener('submit',(e) => {
+    e.preventDefault()
+    let brand = e.target.elements.brand.value
+    let description = e.target.elements.description.value
+    let quantity = e.target.elements.quantity.value 
+    console.log(brand)
+    console.log(description)
+    console.log(quantity)
+})

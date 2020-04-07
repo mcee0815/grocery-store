@@ -21,7 +21,7 @@ const renderStock = (stock) => {
     stock.forEach(el => {
         // make a dom element for the data
         let stockInfo = document.createElement('p')
-        stockInfo.textContent  = `Brand:${el.brand},  Desc:'${el.desc}',  Quantity:${el.quantity}`
+        stockInfo.textContent  = `Brand:${el.brand},  Desc:'${el.description}',  Quantity:${el.quantity}`
         document.querySelector('#stock-info').appendChild(stockInfo)
     }); 
 }
@@ -51,10 +51,21 @@ document.querySelector('#quantity').addEventListener('input',(e) => {
 
 document.querySelector('#the-form').addEventListener('submit',(e) => {
     e.preventDefault()
+// store form input values
     let brand = e.target.elements.brand.value
     let description = e.target.elements.description.value
     let quantity = e.target.elements.quantity.value 
-    console.log(brand)
-    console.log(description)
-    console.log(quantity)
+// create an item object
+    let stockItem = {
+        brand,
+        description,
+        quantity
+    }
+// clear screen
+document.querySelector('#stock-info').innerHTML = ''
+// push to stock
+    addProduct(stock,stockItem)
+    
+    location.reload()
+    
 })

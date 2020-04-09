@@ -60,7 +60,7 @@ document.querySelector('#the-form').addEventListener('submit',(e) => {
         description,
         quantity,
         id
-    }
+    } 
 // clear screen
 document.querySelector('#stock-info').innerHTML = ''
 // push to stock

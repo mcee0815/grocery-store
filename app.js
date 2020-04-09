@@ -32,40 +32,38 @@ const addProduct = (stock,product) => {
     localStorage.setItem('stock',JSON.stringify(stock))
 }
 
-
-
 // let product = {brand:'???',desc:'no desc',type:'na',quantity:0,price:0}
 // addProduct(stock,product)
 
 //localStorage.setItem('stock',JSON.stringify(stock))
 document.querySelector('#stock-info').innerHTML = ''
 
-
-
 // display the data...
 renderStock(stock)
 
+// range input display
 document.querySelector('#quantity').addEventListener('input',(e) => {
     (document.querySelector('#quant').textContent = e.target.value)
 })
 
+// submit the form values
 document.querySelector('#the-form').addEventListener('submit',(e) => {
     e.preventDefault()
 // store form input values
     let brand = e.target.elements.brand.value
     let description = e.target.elements.description.value
     let quantity = e.target.elements.quantity.value 
+    let id = uuidv4()
 // create an item object
     let stockItem = {
         brand,
         description,
-        quantity
+        quantity,
+        id
     }
 // clear screen
 document.querySelector('#stock-info').innerHTML = ''
 // push to stock
     addProduct(stock,stockItem)
-    
     location.reload()
-    
 })

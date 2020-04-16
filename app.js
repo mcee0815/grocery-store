@@ -12,22 +12,21 @@ class Data {
         }
     }
 }
-
 // Data instance
 let Stock = new Data('stock')
-
 let stock = Stock.getData()
-
 // display the data...
 const renderStock = (stock) => {
     stock.forEach(el => {
         // make a dom element for the data
         let stockInfo = document.createElement('p')
-        stockInfo.textContent  = `Brand:${el.brand},  Desc:'${el.description}',  Quantity:${el.quantity}`
-        document.querySelector('#stock-info').appendChild(stockInfo)
+        let link = document.createElement('a')
+            link.setAttribute('href',`/show.html#${el.id}`)
+            link.appendChild(stockInfo)
+            stockInfo.textContent  = `Brand:${el.brand},  Desc:'${el.description}',  Quantity:${el.quantity}`
+            document.querySelector('#stock-info').appendChild(link)
     }); 
 }
-
 // create a product...
 const addProduct = (stock,product) => {
     stock.push(product)

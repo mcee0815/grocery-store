@@ -1,20 +1,22 @@
-// the data.....
-// let groceries = [
-//     {brand:'Goya',desc:'black beans',type:'canned goods',quantity:23,price:.89},
-//     {brand:'uncle bens',desc:'16oz boxed rice',type:'box goods',quantity:43,price:1.99},
-//     {brand:'tuscan',desc:'milk',type:'diary',quantity:73,price:3.99},
-// ]
-//  // save to local storage
-//  localStorage.setItem('stock',JSON.stringify(groceries))
-
-
-//  get the data...
-const getStock = () => {
-    let stockJSON = localStorage.getItem('stock')
-    let stockObj = JSON.parse(stockJSON)
-    return stockObj
+class Data {
+    constructor(dataKey) {
+        this.dataKey = dataKey
+    }
+    getData() {
+        let dataJson = localStorage.getItem(this.dataKey)        
+        try {
+            let dataObj = JSON.parse(dataJson)
+            return dataObj
+        } catch (error) {
+            return []
+        }
+    }
 }
-let stock = getStock()
+
+// Data instance
+let Stock = new Data('stock')
+
+let stock = Stock.getData()
 
 // display the data...
 const renderStock = (stock) => {

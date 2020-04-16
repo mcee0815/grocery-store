@@ -31,7 +31,8 @@ let desc = document.createElement('p')
 let quant = document.createElement('p')
     quant.textContent = item.quantity
 let itemDiv = document.querySelector('#item')
-itemDiv.appendChild(brand)
-itemDiv.appendChild(quant)
-itemDiv.appendChild(desc)
+    
+    itemDiv.appendChild(brand)
+    itemDiv.appendChild(quant)
+    itemDiv.appendChild(desc)
 
